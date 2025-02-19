@@ -1,16 +1,10 @@
 # places
 
-A new Flutter project.
+Flutter Engineer Translation Test
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The purpose of this test is to see how well the candidate can translate designs to actual working mobile applications. 
+Half of the time, client-facing engineers (web and mobile developers) will be translating designs from say a Figma design project to code. 
+We want to be sure that candidates can accurately translate a design task given to a very high standard.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
