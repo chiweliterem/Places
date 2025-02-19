@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/colors/colors.dart';
 import 'package:places/screens/home.dart';
 
 void main() {
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Places',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: kPrimary)),
       home: const Home(appName: 'Places'),
     );
   }
