@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/colors/colors.dart';
 import 'package:places/reusable/app_title_widget.dart';
 import 'package:places/reusable/custom_app_title_and_shapes.dart';
+import 'package:places/reusable/custom_navigation_bar.dart';
 
 class Home extends StatefulWidget {
   final String appName;
@@ -26,8 +27,6 @@ class _HomeState extends State<Home> {
         ],
         actionsPadding: EdgeInsets.symmetric(horizontal: 10.0),
       ),
-
-      //BottomSheet
 
       //Scaffold body
       body: LayoutBuilder(
@@ -66,6 +65,9 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
+
+                //Bottom Navigation bar
+                CustomNavigationBar(),
               ],
             ),
           );

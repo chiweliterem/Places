@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 const kWhite = Color(0xffFFFFFF);
 const kBlack = Color(0xFF000000);
 const kPrimary = Color(0xffFB9E11);
+const kBottomAppBarBackground = Color(0xff262223);
 
 //AppBar Color
 const kBackgroundColor = Color(0xffFAF5F2);
