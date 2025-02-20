@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:places/screens/home.dart';
+import 'package:places/view_model/navigation_view_model.dart';
+import 'package:provider/provider.dart';
 
 import 'app_theme/theming.dart';
 
@@ -13,11 +15,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Places',
-      theme: getLightThemeData(),
-      home: const Home(appName: 'Places'),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<NavigationViewModel>(
+          create: (_) => NavigationViewModel(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Places',
+        theme: getLightThemeData(),
+        home: const Home(appName: 'Places'),
+      ),
     );
   }
 }
