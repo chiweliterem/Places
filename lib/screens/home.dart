@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:places/colors/colors.dart';
 
 class Home extends StatefulWidget {
@@ -36,12 +35,7 @@ class _HomeState extends State<Home> {
               SizedBox(width: 5.0),
               Text(
                 "Saint Petersburg",
-                style: GoogleFonts.roboto(
-                  textStyle: Theme.of(context).textTheme.bodySmall,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
-                  color: kAppBarText,
-                ),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
           ),
