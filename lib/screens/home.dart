@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/colors/colors.dart';
+import 'package:places/reusable/label.dart';
 
 class Home extends StatefulWidget {
   final String appName;
@@ -50,6 +51,8 @@ class _HomeState extends State<Home> {
       body: LayoutBuilder(
         builder: (context, boxConstraints) {
           return Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -58,6 +61,23 @@ class _HomeState extends State<Home> {
                   kBackgroundColor,
                   Colors.orange.shade50,
                   Colors.orange.shade300,
+                ],
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.03,
+                vertical: MediaQuery.of(context).size.height * 0.04,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomLabel(
+                    name: "Hi, Marina",
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ],
               ),
             ),

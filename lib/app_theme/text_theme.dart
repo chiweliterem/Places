@@ -8,5 +8,10 @@ TextTheme getLightTextTheme() {
       fontWeight: FontWeight.w500,
       color: kAppBarText,
     ),
+    titleSmall: TextStyle(
+      fontSize: 16.0,
+      fontWeight: FontWeight.w500,
+      color: kAppBarText,
+    ),
   );
 }
