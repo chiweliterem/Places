@@ -78,6 +78,12 @@ class _HomeState extends State<Home> {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
+                  CustomLabel(
+                    name: "Let's Select your\nperfect place",
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleLarge!.copyWith(color: kBlack),
+                  ),
                 ],
               ),
             ),
