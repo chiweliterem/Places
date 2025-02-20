@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:places/colors/colors.dart';
+import 'package:places/reusable/app_title_widget.dart';
 import 'package:places/reusable/label.dart';
 import 'package:places/reusable/shape_circle.dart';
 import 'package:places/reusable/shape_square.dart';
@@ -20,29 +20,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
-        title: Container(
-          width: MediaQuery.of(context).size.width * .4,
-          height: MediaQuery.of(context).size.height * .05,
-          decoration: BoxDecoration(
-            color: kWhite,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                "assets/svgs/location.svg",
-                width: 15,
-                height: 15,
-              ),
-              SizedBox(width: 5.0),
-              Text(
-                "Saint Petersburg",
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ),
-        ),
+        title: AppTitleWidget(title: "Saint Petersburg"),
         actions: [
           CircleAvatar(
             backgroundImage: AssetImage("assets/images/profileImg.png"),
