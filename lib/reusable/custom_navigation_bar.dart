@@ -24,7 +24,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 25.0, horizontal: 20.0),
+        margin: EdgeInsets.symmetric(vertical: 25.0, horizontal: 50.0),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.075,
         decoration: BoxDecoration(

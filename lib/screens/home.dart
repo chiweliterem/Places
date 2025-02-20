@@ -32,8 +32,8 @@ class _HomeState extends State<Home> {
       body: LayoutBuilder(
         builder: (context, boxConstraints) {
           return Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: boxConstraints.maxWidth,
+            height: boxConstraints.maxHeight,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -54,8 +54,8 @@ class _HomeState extends State<Home> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.46,
+                    width: boxConstraints.maxWidth,
+                    height: boxConstraints.maxHeight * 0.50,
                     decoration: BoxDecoration(
                       color: kWhite,
                       borderRadius: BorderRadius.only(
