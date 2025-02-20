@@ -9,7 +9,7 @@ const kPrimary = Color(0xffFB9E11);
 const kBackgroundColor = Color(0xffFAF5F2);
 
 //Shape colors
-const kRectangle = Color(0xffFEF8F3);
+const kRectangle = Color(0xffFEF8F1);
 const kFAB = Color(0xff2B2B2B);
 
 //Text colors
