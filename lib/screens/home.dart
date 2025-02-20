@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
                 end: Alignment.bottomRight,
                 colors: [
                   kBackgroundColor,
-                  Colors.orange.shade50,
+                  Colors.orange.shade100,
                   Colors.orange.shade300,
                 ],
               ),
