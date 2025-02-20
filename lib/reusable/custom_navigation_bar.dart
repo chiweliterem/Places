@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/colors/colors.dart';
 import 'package:places/enum/enum.dart';
+import 'package:places/screens/home.dart';
+import 'package:places/screens/navigation.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -37,10 +39,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
               flex: 2,
               child: GestureDetector(
                 onTap: () {
-                  debugPrint("Searching...");
                   setState(() {
                     currentItem = Item.search;
                   });
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => NavigationScreen()),
+                  );
                 },
                 child: CircleAvatar(
                   maxRadius: 28.0,
@@ -80,6 +84,11 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                   setState(() {
                     currentItem = Item.home;
                   });
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Home(appName: "Places"),
+                    ),
+                  );
                 },
                 child: CircleAvatar(
                   maxRadius: 28.0,
