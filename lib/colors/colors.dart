@@ -11,7 +11,7 @@ const kBackgroundColor = Color(0xffFAF5F2);
 
 //Shape colors
 const kRectangle = Color(0xffFEF8F1);
-const kFAB = Color(0xff2B2B2B);
+const kFAB = Color(0xff777777);
 
 //Text colors
 const kAppBarText = Color(0xffAAA4A0);

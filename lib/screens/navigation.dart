@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/reusable/custom_fab.dart';
 import 'package:places/reusable/custom_navigation_bar.dart';
 import 'package:places/reusable/search_bar_widget.dart';
 
@@ -26,6 +27,9 @@ class NavigationScreen extends StatelessWidget {
 
                 //Bottom Navigation bar
                 CustomNavigationBar(),
+
+                //Two floating action buttons and an extended FAB
+                CustomFab(),
               ],
             ),
           );
