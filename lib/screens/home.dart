@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:places/colors/colors.dart';
 import 'package:places/reusable/app_title_widget.dart';
 import 'package:places/reusable/custom_app_title_and_shapes.dart';
@@ -14,12 +15,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Widget _buildItem(String imageUrl, {double height = 100}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Container(
+        height: height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kAppBarBackground,
         title: AppTitleWidget(title: "Saint Petersburg"),
         actions: [
           CircleAvatar(
@@ -62,6 +79,44 @@ class _HomeState extends State<Home> {
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: StaggeredGrid.count(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 0,
+                        children: [
+                          StaggeredGridTile.fit(
+                            crossAxisCellCount: 2,
+                            child: _buildItem(
+                              "assets/images/kitchen.png",
+                              height: 200,
+                            ),
+                          ),
+                          StaggeredGridTile.fit(
+                            crossAxisCellCount: 1,
+                            child: _buildItem(
+                              "assets/images/kitchen.png",
+                              height: 400,
+                            ),
+                          ),
+                          StaggeredGridTile.fit(
+                            crossAxisCellCount: 1,
+                            child: _buildItem(
+                              "assets/images/kitchen.png",
+                              height: 200,
+                            ),
+                          ),
+                          StaggeredGridTile.fit(
+                            crossAxisCellCount: 1,
+                            child: _buildItem(
+                              "assets/images/kitchen.png",
+                              height: 200,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

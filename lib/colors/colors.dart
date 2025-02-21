@@ -8,6 +8,7 @@ const kBottomAppBarBackground = Color(0xff262223);
 
 //AppBar Color
 const kBackgroundColor = Color(0xffFAF5F2);
+const kAppBarBackground = Color(0xffF8F2EB);
 
 //Shape colors
 const kRectangle = Color(0xffFEF8F1);
