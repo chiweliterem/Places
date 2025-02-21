@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:places/colors/colors.dart';
 import 'package:places/reusable/app_title_widget.dart';
+import 'package:places/reusable/custom_Staggered_grid.dart';
 import 'package:places/reusable/custom_app_title_and_shapes.dart';
 import 'package:places/reusable/custom_navigation_bar.dart';
 
@@ -69,58 +69,7 @@ class _HomeState extends State<Home> {
                 CustomAppTitleAndShapes(),
 
                 //Animated container
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    width: boxConstraints.maxWidth,
-                    height: boxConstraints.maxHeight * 0.50,
-                    decoration: BoxDecoration(
-                      color: kWhite,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: StaggeredGrid.count(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 0,
-                        children: [
-                          StaggeredGridTile.fit(
-                            crossAxisCellCount: 2,
-                            child: _buildItem(
-                              "assets/images/kitchen.png",
-                              height: 200,
-                            ),
-                          ),
-                          StaggeredGridTile.fit(
-                            crossAxisCellCount: 1,
-                            child: _buildItem(
-                              "assets/images/kitchen.png",
-                              height: 400,
-                            ),
-                          ),
-                          StaggeredGridTile.fit(
-                            crossAxisCellCount: 1,
-                            child: _buildItem(
-                              "assets/images/kitchen.png",
-                              height: 200,
-                            ),
-                          ),
-                          StaggeredGridTile.fit(
-                            crossAxisCellCount: 1,
-                            child: _buildItem(
-                              "assets/images/kitchen.png",
-                              height: 200,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                CustomStaggeredGrid(boxConstraints: boxConstraints),
 
                 //Bottom Navigation bar
                 CustomNavigationBar(),
