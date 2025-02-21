@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/reusable/custom_navigation_bar.dart';
+import 'package:places/reusable/search_bar_widget.dart';
 
 class NavigationScreen extends StatelessWidget {
   const NavigationScreen({super.key});
@@ -20,6 +21,9 @@ class NavigationScreen extends StatelessWidget {
             ),
             child: Stack(
               children: [
+                //Search bar widget
+                SearchBarWidget(),
+
                 //Bottom Navigation bar
                 CustomNavigationBar(),
               ],
