@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/reusable/custom_fab.dart';
+import 'package:places/reusable/custom_house_ticker.dart';
 import 'package:places/reusable/custom_navigation_bar.dart';
 import 'package:places/reusable/search_bar_widget.dart';
 
@@ -24,6 +25,9 @@ class NavigationScreen extends StatelessWidget {
               children: [
                 //Search bar widget
                 SearchBarWidget(),
+
+                //House tickers
+                CustomHouseTicker(),
 
                 //Bottom Navigation bar
                 CustomNavigationBar(),
