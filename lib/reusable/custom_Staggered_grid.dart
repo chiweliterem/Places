@@ -5,8 +5,13 @@ import 'package:places/colors/colors.dart';
 
 class CustomStaggeredGrid extends StatefulWidget {
   final BoxConstraints boxConstraints;
+  final double height;
 
-  const CustomStaggeredGrid({super.key, required this.boxConstraints});
+  const CustomStaggeredGrid({
+    super.key,
+    required this.boxConstraints,
+    required this.height,
+  });
 
   @override
   State<CustomStaggeredGrid> createState() => _CustomStaggeredGridState();
@@ -59,7 +64,7 @@ class _CustomStaggeredGridState extends State<CustomStaggeredGrid> {
       alignment: Alignment.bottomCenter,
       child: Container(
         width: widget.boxConstraints.maxWidth,
-        height: widget.boxConstraints.maxHeight * 0.50,
+        height: widget.height,
         decoration: BoxDecoration(
           color: kWhite,
           borderRadius: BorderRadius.only(

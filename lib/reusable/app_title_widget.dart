@@ -59,7 +59,7 @@ class _AppTitleWidgetState extends State<AppTitleWidget> {
                         style: Theme.of(context).textTheme.bodySmall,
                       ).animate(delay: 2500.ms),
                     ],
-                  ).animate(delay: 2500.ms).fadeIn(),
+                  ).animate(delay: 4000.ms).fadeIn(),
             ).animate()
             : Container(
               width: _viewModel.customWidth,

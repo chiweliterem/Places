@@ -86,15 +86,21 @@ class _HomeState extends State<Home> {
 
                     //Animated container
                     model.renderAnimation
-                        ? CustomStaggeredGrid(boxConstraints: boxConstraints)
-                            .animate(delay: Duration(milliseconds: 1200))
+                        ? CustomStaggeredGrid(
+                              boxConstraints: boxConstraints,
+                              height: boxConstraints.maxHeight * 0.81,
+                            )
+                            .animate(delay: Duration(milliseconds: 2000))
                             .slideY(
                               begin: 1.0,
                               end: 0,
                               duration: 1000.ms,
                               curve: Curves.easeOut,
                             )
-                        : CustomStaggeredGrid(boxConstraints: boxConstraints),
+                        : CustomStaggeredGrid(
+                          boxConstraints: boxConstraints,
+                          height: boxConstraints.maxHeight * 0.5,
+                        ),
 
                     //Bottom Navigation bar
                     model.renderAnimation
