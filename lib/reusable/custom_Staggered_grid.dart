@@ -23,11 +23,7 @@ class _CustomStaggeredGridState extends State<CustomStaggeredGrid> {
         thumb: Icon(Icons.arrow_forward_ios, color: kBlack, size: 15.0),
         activeThumbColor: kWhite,
         activeTrackColor: kSwipeableBg,
-        onSwipe: () {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text("Gladkova St., 25")));
-        },
+        onSwipe: () {},
         child: Text(
           "Gladkova St., 25",
           style: Theme.of(

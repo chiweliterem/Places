@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:places/colors/colors.dart';
 import 'package:places/reusable/app_title_widget.dart';
 import 'package:places/reusable/custom_Staggered_grid.dart';
@@ -39,8 +40,20 @@ class _HomeState extends State<Home> {
         backgroundColor: kAppBarBackground,
         title: AppTitleWidget(title: "Saint Petersburg"),
         actions: [
-          CircleAvatar(
-            backgroundImage: AssetImage("assets/images/profileImg.png"),
+          Animate(
+            effects: [
+              FadeEffect(
+                duration: Duration(milliseconds: 800),
+                curve: Curves.fastOutSlowIn,
+              ),
+              ScaleEffect(
+                duration: Duration(milliseconds: 1000),
+                curve: Curves.easeIn,
+              ),
+            ],
+            child: CircleAvatar(
+              backgroundImage: AssetImage("assets/images/profileImg.png"),
+            ),
           ),
         ],
         actionsPadding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -69,10 +82,24 @@ class _HomeState extends State<Home> {
                 CustomAppTitleAndShapes(),
 
                 //Animated container
-                CustomStaggeredGrid(boxConstraints: boxConstraints),
+                CustomStaggeredGrid(boxConstraints: boxConstraints)
+                    .animate(delay: Duration(milliseconds: 1200))
+                    .slideY(
+                      begin: 1.0,
+                      end: 0,
+                      duration: 1000.ms,
+                      curve: Curves.easeOut,
+                    ),
 
                 //Bottom Navigation bar
-                CustomNavigationBar(),
+                CustomNavigationBar()
+                    .animate(delay: 3000.ms)
+                    .slideY(
+                      begin: 1.0,
+                      end: 0,
+                      duration: 600.ms,
+                      curve: Curves.easeOut,
+                    ),
               ],
             ),
           );
