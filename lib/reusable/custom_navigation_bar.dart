@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/colors/colors.dart';
 import 'package:places/enum/enum.dart';
@@ -60,6 +61,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                               ? kPrimary
                               : Colors.transparent,
                       child: SvgPicture.asset("assets/svgs/search.svg"),
+                    ).animate().scale(
+                      curve: Curves.fastOutSlowIn,
+                      duration: 1000.ms,
                     ),
                   ),
                 ),
@@ -90,6 +94,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                       //Calling updateCurrentItem function
                       model.updateCurrentItem(Item.home);
 
+                      //Stop the animation from running again
+                      model.stopAnimation(isRunning: false);
+
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => Home(appName: "Places"),
@@ -106,6 +113,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                         "assets/svgs/home.svg",
                         color: kWhite,
                       ),
+                    ).animate().scale(
+                      curve: Curves.fastOutSlowIn,
+                      duration: 1000.ms,
                     ),
                   ),
                 ),

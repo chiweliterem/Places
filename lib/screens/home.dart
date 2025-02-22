@@ -5,6 +5,8 @@ import 'package:places/reusable/app_title_widget.dart';
 import 'package:places/reusable/custom_Staggered_grid.dart';
 import 'package:places/reusable/custom_app_title_and_shapes.dart';
 import 'package:places/reusable/custom_navigation_bar.dart';
+import 'package:places/view_model/navigation_view_model.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   final String appName;
@@ -16,6 +18,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  late NavigationViewModel _viewModel;
+
   Widget _buildItem(String imageUrl, {double height = 100}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -30,6 +34,13 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _viewModel = context.read<NavigationViewModel>();
   }
 
   @override
@@ -62,46 +73,54 @@ class _HomeState extends State<Home> {
       //Scaffold body
       body: LayoutBuilder(
         builder: (context, boxConstraints) {
-          return Container(
-            width: boxConstraints.maxWidth,
-            height: boxConstraints.maxHeight,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  kBackgroundColor,
-                  Colors.orange.shade100,
-                  Colors.orange.shade300,
-                ],
-              ),
-            ),
-            child: Stack(
-              children: [
-                //Custom app titles
-                CustomAppTitleAndShapes(),
+          return Consumer<NavigationViewModel>(
+            builder: (_, model, __) {
+              return Container(
+                width: boxConstraints.maxWidth,
+                height: boxConstraints.maxHeight,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      kBackgroundColor,
+                      Colors.orange.shade100,
+                      Colors.orange.shade300,
+                    ],
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    //Custom app titles
+                    CustomAppTitleAndShapes(),
 
-                //Animated container
-                CustomStaggeredGrid(boxConstraints: boxConstraints)
-                    .animate(delay: Duration(milliseconds: 1200))
-                    .slideY(
-                      begin: 1.0,
-                      end: 0,
-                      duration: 1000.ms,
-                      curve: Curves.easeOut,
-                    ),
+                    //Animated container
+                    model.renderAnimation
+                        ? CustomStaggeredGrid(boxConstraints: boxConstraints)
+                            .animate(delay: Duration(milliseconds: 1200))
+                            .slideY(
+                              begin: 1.0,
+                              end: 0,
+                              duration: 1000.ms,
+                              curve: Curves.easeOut,
+                            )
+                        : CustomStaggeredGrid(boxConstraints: boxConstraints),
 
-                //Bottom Navigation bar
-                CustomNavigationBar()
-                    .animate(delay: 3000.ms)
-                    .slideY(
-                      begin: 1.0,
-                      end: 0,
-                      duration: 600.ms,
-                      curve: Curves.easeOut,
-                    ),
-              ],
-            ),
+                    //Bottom Navigation bar
+                    model.renderAnimation
+                        ? CustomNavigationBar()
+                            .animate(delay: 3000.ms)
+                            .slideY(
+                              begin: 1.0,
+                              end: 0,
+                              duration: 600.ms,
+                              curve: Curves.easeOut,
+                            )
+                        : CustomNavigationBar(),
+                  ],
+                ),
+              );
+            },
           );
         },
       ),
