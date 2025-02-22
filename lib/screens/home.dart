@@ -20,22 +20,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late NavigationViewModel _viewModel;
 
-  Widget _buildItem(String imageUrl, {double height = 100}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Container(
-        height: height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(imageUrl),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(30),
-        ),
-      ),
-    );
-  }
-
   @override
   void initState() {
     super.initState();
@@ -45,36 +29,42 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: kAppBarBackground,
-        title: AppTitleWidget(title: "Saint Petersburg"),
-        actions: [
-          Animate(
-            effects: [
-              FadeEffect(
-                duration: Duration(milliseconds: 800),
-                curve: Curves.fastOutSlowIn,
-              ),
-              ScaleEffect(
-                duration: Duration(milliseconds: 1000),
-                curve: Curves.easeIn,
-              ),
+    return Consumer<NavigationViewModel>(
+      builder: (_, model, __) {
+        return Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: kAppBarBackground,
+            title: AppTitleWidget(title: "Saint Petersburg"),
+            actions: [
+              _viewModel.renderAnimation
+                  ? Animate(
+                    effects: [
+                      FadeEffect(
+                        duration: Duration(milliseconds: 800),
+                        curve: Curves.fastOutSlowIn,
+                      ),
+                      ScaleEffect(
+                        duration: Duration(milliseconds: 1000),
+                        curve: Curves.easeIn,
+                      ),
+                    ],
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage(
+                        "assets/images/profileImg.png",
+                      ),
+                    ),
+                  )
+                  : CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/profileImg.png"),
+                  ),
             ],
-            child: CircleAvatar(
-              backgroundImage: AssetImage("assets/images/profileImg.png"),
-            ),
+            actionsPadding: EdgeInsets.symmetric(horizontal: 10.0),
           ),
-        ],
-        actionsPadding: EdgeInsets.symmetric(horizontal: 10.0),
-      ),
 
-      //Scaffold body
-      body: LayoutBuilder(
-        builder: (context, boxConstraints) {
-          return Consumer<NavigationViewModel>(
-            builder: (_, model, __) {
+          //Scaffold body
+          body: LayoutBuilder(
+            builder: (context, boxConstraints) {
               return Container(
                 width: boxConstraints.maxWidth,
                 height: boxConstraints.maxHeight,
@@ -121,9 +111,9 @@ class _HomeState extends State<Home> {
                 ),
               );
             },
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
