@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:places/reusable/custom_fab.dart';
 import 'package:places/reusable/custom_house_ticker.dart';
 import 'package:places/reusable/custom_navigation_bar.dart';
@@ -24,7 +25,16 @@ class NavigationScreen extends StatelessWidget {
             child: Stack(
               children: [
                 //Search bar widget
-                SearchBarWidget(),
+                Animate(
+                  effects: [
+                    ScaleEffect(
+                      duration: Duration(milliseconds: 1000),
+                      curve: Curves.easeIn,
+                      alignment: Alignment.topCenter,
+                    ),
+                  ],
+                  child: SearchBarWidget(),
+                ),
 
                 //House tickers
                 CustomHouseTicker(),

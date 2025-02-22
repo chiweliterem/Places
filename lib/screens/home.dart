@@ -109,9 +109,10 @@ class _HomeState extends State<Home> {
                             .slideY(
                               begin: 1.0,
                               end: 0,
-                              duration: 600.ms,
+                              duration: 1000.ms,
                               curve: Curves.easeOut,
                             )
+                            .fadeIn()
                         : CustomNavigationBar(),
                   ],
                 ),
